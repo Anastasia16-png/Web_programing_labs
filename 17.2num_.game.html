@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>гра вгадай число</title>
+</head>
+<body>
+    <script>
+        function Game(){
+            const randomNumber = Math.floor(Math.random()*101); 
+            let attempts = 0;
+
+            while (true){
+                const userGuessNum = parseInt(prompt("Вгадайте число від 0 до 100"));
+                if (isNaN(userGuessNum)) {
+                    alert("Введіть число");
+                    continue;
+                }
+                attempts++;
+
+                if (userGuessNum === randomNumber){
+                    alert(`За ${attempts} спроб ви вгадали число ${randomNumber}`);
+                    console.log(`${getTimeGame()} Спроба ${attempts}: число ${userGuessNum} вірно`);
+                    break;
+                } else {
+                    const difference = Math.abs(randomNumber - userGuessNum);
+                    let hint = "";
+
+                    if (difference <= 5){
+                        hint = "дуже гаряче";
+                    } else if (difference <= 10){
+                        hint = "гаряче";
+                    } else if (difference <= 20) {
+                        hint = "тепло";
+                    } else if (difference <= 30) {
+                        hint = "прохолодно";
+                    } else {
+                        hint = "холодно";
+                    }
+
+                    alert(`${hint}, спробуйте інше число`);
+                    console.log(`${getTimeGame()} Спроба ${attempts}: число ${userGuessNum} не вірно`);
+                }
+            }
+            const playAgain = confirm("Хочете зіграти ще раз?");
+            if(playAgain){
+                Game();
+            } else {
+                alert("Гра закінчена");
+            }
+        }
+		function getTimeGame(){
+			const now = new Date();
+    		const formattedDateTime = now.toLocaleString();
+    		return formattedDateTime;
+		}
+		Game();
+	</script>
+</body>
+</html>
