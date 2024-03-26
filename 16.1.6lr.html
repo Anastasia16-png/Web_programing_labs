@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>input</title>
+</head>
+<body>
+	<input type="text" id="input1">
+	<input type="text" id="input2">
+	<input type="text" id="input3">
+	
+	<p id="demo"></p>
+
+	<script>
+    	//посилання на абзац
+    	var demoParag = document.getElementById('demo');
+
+    	//посилання нак інпут елементи
+    	var input1 = document.getElementById('input1');
+    	var input2 = document.getElementById('input2');
+    	var input3 = document.getElementById('input3');
+
+    	// перевірка натискання
+        var input1Clicked = false;
+        var input2Clicked = false;
+        var input3Clicked = false;
+
+        // подія input, яка відбувається при зміні значення поля вводу
+        function handleKeyup(event) {
+            var value = event.target.value;
+            if (!event.target.dataset.clicked) {
+                event.target.dataset.clicked = true;
+                alert(value);
+            }
+        }
+    	// keyup + elements
+    	input1.addEventListener('keyup', handleKeyup);
+    	input2.addEventListener('keyup', handleKeyup);
+    	input3.addEventListener('keyup', handleKeyup); 
+	</script>
+</body>
+</html>

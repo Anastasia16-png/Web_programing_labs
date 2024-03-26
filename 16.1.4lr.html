@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Посилання href</title>
+</head>
+<body>
+
+    <p><a id="link1" href="https://dist.nupp.edu.ua/course/view.php?id=3553" title=" ">Дист портал</a>
+    <p><a id="link2" href="https://portal.nupp.edu.ua/login" title=" ">Інтернет ресурс</a>
+    <p><a id="link3" href="https://nupp.edu.ua/" title=" ">Сайт</a>
+    
+    <script>
+        // функція, яка додає href в кінець тексту посилання
+        function addHref(event){
+            var href = event.target.getAttribute('href');
+            event.target.textContent += ' (' + href + ')';
+            
+            // відв'язання обробника події після першого наведення
+            event.target.removeEventListener('mouseover', addHref);
+            event.target.addEventListener('mouseout', removeHref);
+        }
+
+        // функція, яка видаляє href з кінця тексту посилання
+        function removeHref(event){
+            var hrefLength = event.target.getAttribute('href').length + 3;
+            event.target.textContent = event.target.textContent.slice(0, -hrefLength);
+        
+            event.target.removeEventListener('mouseout', removeHref);
+        }
+
+        var link1 = document.getElementById('link1');
+        var link2 = document.getElementById('link2');
+        var link3 = document.getElementById('link3');
+
+        // обробники подій для посилання
+        link1.addEventListener('mouseover', addHref);
+        link2.addEventListener('mouseover', addHref);
+        link3.addEventListener('mouseover', addHref);
+    </script>
+</body>
+</html>
