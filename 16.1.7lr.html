@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>paragraph</title>
+</head>
+<body>
+	<p id="parag1">5</p>
+	<p id="parag2">7</p>
+	<p id="parag3">9</p>
+
+	<script>
+		var parag1 = document.getElementById('parag1');
+        var parag2 = document.getElementById('parag2');
+        var parag3 = document.getElementById('parag3');
+
+        function squareNumber(event) {
+            var numberText = event.target.textContent;
+            //текст на число
+            var number = parseInt(numberText);
+            var square = number * number;
+            //зміна тексту параграфу на квадрат числа
+            event.target.textContent = square;
+        }
+        
+        parag1.addEventListener('click', squareNumber);
+        parag2.addEventListener('click', squareNumber);
+        parag3.addEventListener('click', squareNumber);
+	</script>
+</body>
+</html>

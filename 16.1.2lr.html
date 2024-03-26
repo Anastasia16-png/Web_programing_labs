@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Посилання</title>
+</head>
+<body>
+    <p><a id="link1" href="https://dist.nupp.edu.ua/course/view.php?id=3553" title=" ">Дист портал</a>
+    <p><a id="link2" href="https://portal.nupp.edu.ua/login" title=" ">Інтернет ресурс</a>
+    <p><a id="link3" href="https://nupp.edu.ua/" title=" ">Сайт</a>
+    
+    <script>
+        function addTitle(event) {
+            event.target.title = event.target.textContent;
+        }
+
+        function removeTitle(event) {
+            event.target.title = "";
+        }
+        var link1 = document.getElementById('link1');
+        var link2 = document.getElementById('link2');
+        var link3 = document.getElementById('link3');
+
+        // Додаємо обробники подій для кожного посилання
+        link1.addEventListener('mouseover', addTitle);
+        link2.addEventListener('mouseover', addTitle);
+        link3.addEventListener('mouseover', addTitle);
+
+        // Видаляємо обробники подій при відведенні миші
+        link1.addEventListener('mouseout', removeTitle);
+        link2.addEventListener('mouseout', removeTitle);
+        link3.addEventListener('mouseout', removeTitle);
+    </script>
+</body>
+</html>
+</body>
+</html>

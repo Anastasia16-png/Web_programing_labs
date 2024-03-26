@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>При натисканні на картинку alert виводив значення її атрибуту src</title>
+</head>
+<body>
+	<img id="image1" src="im1.jpg" width="200" height="300" alt="Image 1">
+    <img id="image2" src="im2.jpg" width="200" height="300" alt="Image 2">
+    <img id="image3" src="im3.jpg" width="200" height="300" alt="Image 3">
+	<script>
+		var img1 = document.getElementById('image1');
+		var img2 = document.getElementById('image2');
+		var img3 = document.getElementById('image3');
+
+		// onclick 
+		img1.onclick = function() {
+    		alert(img1.src);
+		};
+
+		img2.onclick = function() {
+    		alert(img2.src);
+		};
+
+		img3.onclick = function() {
+    		alert(img3.src);
+		};
+	</script>
+</body>
+</html>
