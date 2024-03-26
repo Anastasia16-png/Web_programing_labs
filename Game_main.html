@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>Залишилось: </p>
+    <p id="timer"></p>
+
+    <table id="gameBoard"></table>
+
+    <p></p>
+    <button id="restartBtn">Почати спочатку</button>
+
+    <p></p>
+    <table id="statsTable">
+        <tr>
+            <th>Гра</th>
+            <th>Час</th>
+        </tr>
+    </table>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var timerLeft = 60;
+
+            var numbers = Array.from({length: 25}, (_, i) => i + 1);
+            numbers.sort(() => Math.random() - 0.5);
+
+            function getRandomColor(){
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            var attempts = 0;
+            var bestTime = Infinity;
+
+            function updateStats(time) {
+                attempts++;
+                if (time < bestTime) {
+                    bestTime = time;
+                }
+
+                $("#statsTable").append("<tr><td>Гра " + attempts + "</td><td>" + time + " с</td></tr>");
+                $("#statsTable tr:last-child").css("background-color", (time === bestTime) ? "yellow" : "white");
+            }
+
+            function updateTimer() {
+                $("#timer").text(timerLeft);
+                if (timerLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Час закінчився! Почніть гру спочатку");
+                }
+            }
+
+            var timerInterval = setInterval(function(){
+                timerLeft--;
+                $("#timer").text(timerLeft);
+
+                if (timerLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Час закінчився! Почніть гру спочатку");
+                }
+            }, 1000);
+
+            function GameBoard(){
+                var $table = $("#gameBoard");
+                var count = 1;
+                for (var i = 0; i < 5; i++){
+                    var $row = $("<tr>");
+                    for (var j = 0; j < 5; j++){
+                        var $cell = $("<td>");
+
+                        var fontSize = Math.floor(Math.random() * 10) + 15;
+                        var color = getRandomColor();
+                        $cell.css("font-size", fontSize + "px");
+                        $cell.css("color", color);
+
+                        $cell.text(numbers[i * 5 + j]);
+                        $row.append($cell);
+                    }
+                    $table.append($row);
+                }
+
+                $table.find("td").click(function() {
+                    var selectedNumber = parseInt($(this).text());
+                    if (selectedNumber === count) {
+                        $(this).css("background-color", "yellow");
+                        count++;
+                    } else {
+                        alert("Не вірна цифра! Почніть гру спочатку.");
+                        clearInterval(timerInterval);
+                        count = 1;
+                        $table.find("td").css("background-color", "");
+                    }
+                    if (count === 26) {
+                        alert("Ви вибрали всі числа! Вітаємо!");
+                        clearInterval(timerInterval);
+                        var time = 60 - timerLeft;
+                        updateStats(time);
+                    }
+                });
+            }
+            GameBoard();
+
+            $("#restartBtn").click(function() {
+                clearInterval(timerInterval);
+                timerLeft = 60; 
+                updateTimer();
+                $("#gameBoard").empty();
+                numbers.sort(() => Math.random() - 0.5);
+                GameBoard();
+               
+            });
+        });
+    </script>
+</body>
+</html>
