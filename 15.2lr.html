@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>do while</title>
+</head>
+<body>
+  
+<div id="printNumbers"></div>
+
+<script>
+  function printNumbers() {
+    let number = 0;
+    let output_num = '';
+
+    do {
+      if (number === 0) {
+        output_num += `${number} - нуль <br>`;
+      } else if (number % 2 === 0) {
+        output_num += `${number} - парне число <br>`;
+      } else {
+        output_num += `${number} - непарне число <br>`;
+      }
+      number++;
+    } while (number <= 10);
+
+    document.getElementById("printNumbers").innerHTML = output_num;
+  }
+
+printNumbers();
+</script>
+
+</body>
+</html>

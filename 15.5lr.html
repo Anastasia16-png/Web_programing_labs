@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Температура в градусах за Фаренгейтом</title>
+</head>
+<body>
+
+  <script>
+    let temperatureCelsius = parseFloat(prompt("Введіть температуру в градусах за Цельсієм:"));
+
+    let temperatureFahrenheit = (9 / 5) * temperatureCelsius + 32;
+
+    alert("Температура за Фаренгейтом: " + temperatureFahrenheit.toFixed(2));// 2 знаки після коми
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прості числа від 0 до 100</title>
+</head>
+<body>
+  <div>
+    <p>Всі прості числа в проміжку від 0 до 100</p>
+  </div>
+<div id="primeNumbers"></div>
+
+<script>
+  let number = 0;
+  let primeNumbersString = ' '; // змінна для зберігання простих чисел
+  let primeNumbersD = document.getElementById("primeNumbers"); //посилання на div
+
+  while (number <= 100) {
+    let isPrime = true;
+
+    if (number === 0 || number === 1) {
+      isPrime = false;
+    } else {
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+    }
+
+    if (isPrime) {
+      primeNumbersString += number + ' '; // + просте число до рядка
+    }
+
+    number++;
+  }
+
+  primeNumbersD.textContent = primeNumbersString;
+</script>
+
+</body>
+</html>

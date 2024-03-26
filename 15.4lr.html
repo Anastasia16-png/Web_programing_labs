@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>month</title>
+</head>
+<body>
+
+  <script>
+    let month = parseInt(prompt("Введіть номер місяця: "));
+    let season;
+    let name_of_month;
+
+    switch (month){
+    case 1:
+    case 2:
+    case 12:
+      season = "зима";
+      break;
+    case 3:
+    case 4:
+    case 5:
+      season = "весна";
+      break;
+    case 6:
+    case 7:
+    case 8:
+      season = "літо";
+      break;
+    case 9:
+    case 10:
+    case 11:
+      season = "осінь";
+      break;
+    default:
+      alert("такого не існує")
+    }
+
+    switch (month) {
+    case 1:
+      name_of_month = "січень";
+      break;
+    case 2:
+      name_of_month = "лютий";
+      break;
+    case 3:
+      name_of_month = "березень";
+      break;
+    case 4:
+      name_of_month = "квітень";
+      break;
+    case 5:
+      name_of_month = "травень";
+      break;
+    case 6:
+      name_of_month = "червень";
+      break;
+    case 7:
+      name_of_month = "липень";
+      break;
+    case 8:
+      name_of_month = "серпень";
+      break;
+    case 9:
+      name_of_month = "вересень";
+      break;
+    case 10:
+      name_of_month = "жовтень";
+      break;
+    case 11:
+      name_of_month = "листопад";
+      break;
+    case 12:
+      name_of_month = "грудень";
+      break;
+    default:
+      break;
+    }
+
+  if (season && name_of_month) {
+    alert("місяць " + name_of_month + " це " + season);
+  }
+
+  </script>
+
+</body>
+</html>

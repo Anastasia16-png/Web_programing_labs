@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дні тижня</title>
+</head>
+<body>
+
+<script>
+  let dayNumber = parseInt(prompt("Введіть число від 1 до 7:"));
+
+  let day;
+
+  switch (dayNumber) {
+    case 1:
+      day = "Понеділок";
+      break;
+    case 2:
+      day = "Вівторок";
+      break;
+    case 3:
+      day = "Середа";
+      break;
+    case 4:
+      day = "Четвер";
+      break;
+    case 5:
+      day = "П'ятниця";
+      break;
+    case 6:
+      day = "Субота";
+      break;
+    case 7:
+      day = "Неділя";
+      break;
+    default:
+      day = "Введдіть правильне число від 1 до 7";
+      break;
+  }
+
+  alert("День тижня: " + day);
+</script>
+
+</body>
+</html>
