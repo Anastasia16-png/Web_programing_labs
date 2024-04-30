@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p>Потрібно написати функцію, що виводить в консоль числа від 1 до n, де n - це ціле число, яка функція приймає як параметр, з такими умовами:</p>
+	<p>виводить fizz замість чисел, кратних 3;</p>
+	<p>виводить buzz замість чисел, кратних 5;</p>
+	<p>виводить fizzbuzz замість чисел, кратних як 3, так і 5</p>
+
+	<script>
+		function multiples(n){
+			for (let i = 1; i <= n; i++){
+				if (i % 3 === 0 && i % 5 === 0){
+					console.log("fizzbuzz");
+				} else if (i % 3 === 0){
+					console.log("fizz");
+				} else if (i % 5 === 0){
+					console.log("buzz");
+				} else{
+					console.log(i);
+				}
+			}
+		}
+
+		multiples(15); //1-15
+	</script>
+</body>
+</html>

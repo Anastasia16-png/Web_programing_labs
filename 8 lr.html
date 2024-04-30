@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p>Створіть чотири функції для арифметичних операцій: (Add – додавання, Sub – віднімання, Mul – множення, Div – ділення). Кожна функція повинна приймати два параметри и виводити на екран результат обчислення. Функція ділення  повинна виконувати перевірку на нуль. Користувач вводить значення, над якими хоче провести операцію і робить вибірку самої операції. </p>
+	<script>
+		function add(x, y){
+			console.log("Додавання ", x + y);
+		}
+		function sub(x, y){
+			console.log("Віднімання ", x - y);
+		}
+		function mul(x, y){
+			console.log("Множення ", x * y);
+		}
+		function div(x, y){
+			if (y === 0){
+				console.log("На нуль не ділиться");
+			} else {
+				console.log("Результат ", x / y);
+			}
+		}
+
+		function chooseOperation() {
+		    const x = parseFloat(prompt("Введіть перше число:"));
+		    const y = parseFloat(prompt("Введіть друге число:"));
+		    const operation = prompt("Виберіть операцію (add, sub, mul, div):");
+
+		    switch (operation) {
+		        case "add":
+		            add(x, y);
+		            break;
+		        case "sub":
+		            sub(x, y);
+		            break;
+		        case "mul":
+		            mul(x, y);
+		            break;
+		        case "div":
+		            div(x, y);
+		            break;
+		        default:
+		            console.log("Неправильна операція");
+    		}
+		}
+
+		chooseOperation();
+	</script>
+</body>
+</html>

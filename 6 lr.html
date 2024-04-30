@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p>Створити масив розмірністю N елементів, заповнити його довільними цілими значеннями. 
+	Вивести найбільше значення масиву, 
+	найменше значення масиву, 
+	загальну суму елементів, 
+	середнє арифметичне всіх елементів, 
+	вивести непарні значення</p>
+
+	<script>
+		 const N = 10;
+
+		//довільний масив
+		const array = [];
+        for (let i = 0; i < N; i++) {
+            array.push(Math.floor(Math.random() * 100) + 1);
+        }
+
+        //найбільше
+        const max = Math.max(...array);
+        //найменше
+        const min = Math.min(...array);
+
+        //загальна сума елементів в масиві
+        const sum = array.reduce((acc, curr) => acc + curr, 0);
+
+        //середнє арифметичне всіх елементів
+        const average = sum / N;
+
+        //непарні значення
+        const oddValues = array.filter(num => num % 2 !== 0);
+
+        console.log("Масив:", array);
+        console.log("Найбільше значення:", max);
+        console.log("Найменше значення:", min);
+        console.log("Загальна сума елементів:", sum);
+        console.log("Середнє арифметичне всіх елементів:", average);
+        console.log("Непарні значення:", oddValues);
+	</script>
+</body>
+</html>

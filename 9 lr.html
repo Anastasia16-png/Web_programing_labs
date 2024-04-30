@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p>Напишіть функцію, яка буде приймати число і визначати:</p>
+	<p>Чи є введене число позитивним або негативним;</p>
+	<p>Чи є число простим;</p>
+	<p>Чи ділиться вона на 2, 5, 3, 6, 9 без залишку</p>
+	
+	<script>
+		function analyzeNumber() {
+		    const number = parseInt(prompt("Введіть число:"));
+
+		    // число позитивне чи негативне
+		    if (number >= 0) {
+		        console.log(number + " позитивне число");
+		    } else if (number < 0) {
+		        console.log(number + " негативне число");
+		    } 
+
+		    // число просте
+		    let isPrime = true;
+		    if (number <= 1) {
+		        isPrime = false;
+		    } else {
+		        for (let i = 2; i <= Math.sqrt(number); i++) {
+		            if (number % i === 0) {
+		                isPrime = false;
+		                break;
+		            }
+		        }
+		    }
+		    if (isPrime) {
+		        console.log(number + " просте число");
+		    } else {
+		        console.log(number + " не просте число");
+		    }
+
+		    // чи ділиться число на 2, 5, 3, 6, 9 без залишку
+		    console.log("Дільниками числа " + number + " без залишку є");
+		    if (number % 2 === 0) {
+		        console.log("2");
+		    }
+		    if (number % 5 === 0) {
+		        console.log("5");
+		    }
+		    if (number % 3 === 0) {
+		        console.log("3");
+		    }
+		    if (number % 6 === 0) {
+		        console.log("6");
+		    }
+		    if (number % 9 === 0) {
+		        console.log("9");
+		    }
+		}
+
+		analyzeNumber();
+	</script>
+</body>
+</html>

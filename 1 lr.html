@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>функцію seconds</title>
+</head>
+<body>
+	<p>Напишіть функцію seconds, яка приймає числовий параметр total і повертає залишок від ділення числа total на 60</p>
+
+	<input type="number" id="totalInput" placeholder="Число">
+	<button onclick="calculateRemainder()">Отримати залишок</button>
+	<p id="remainder"></p>
+
+	<script>
+		function seconds(total){
+			return total % 60;
+		}
+
+		function calculateRemainder(){
+			const totalSeconds = document.getElementById("totalInput").value;
+			const remainder = seconds(totalSeconds);
+			document.getElementById("remainder").innerText = remainder;
+		}
+	</script>
+
+</body>
+</html>

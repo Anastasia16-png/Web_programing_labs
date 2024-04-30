@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p>Напишіть функцію, яка видаляє дублікати в масиві. Наприклад, вхідний масив: [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6], який повертає функція [1, 2, 4, 5, 7, 8, 3, 6] </p>
+	<script>
+		function removeDuplicates(arr) {
+			 const uniqueArray = [...new Set(arr)]; //метод set автоматично видал. повторення ... оператор поширення назад у масив
+    		return uniqueArray;
+		}
+
+		const inputArray = [1, 2, 2, 2, 4, 5 , 4, 7, 8, 7, 3, 6, 2, 3];
+		const result = removeDuplicates(inputArray);
+		console.log(result);
+	</script>
+</body>
+</html>
